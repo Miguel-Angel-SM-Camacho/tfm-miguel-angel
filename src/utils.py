@@ -48,6 +48,50 @@ def limpieza_datos(df):
             
     return df_clean
 
+def limpieza_soft_skills_2019(df):
+    
+    """Realiza la limpieza técnica y el tratamiento de outliers para el dataset del año 2019. """
+   
+    df_clean = df.copy()
+    df_clean = df_clean.drop_duplicates(keep='first')
+    
+    # Variables numéricas que requieren tratamiento especial
+    num_cols = ['WorkWeekHrs', 'CodeRevHrs']
+    
+    for col in num_cols:
+        if col in df_clean.columns:
+            df_clean[col] = pd.to_numeric(df_clean[col], errors='coerce')
+            df_clean[f'{col}_is_missing'] = df_clean[col].isna().astype(int)
+            
+    if 'WorkWeekHrs' in df_clean.columns:
+        df_clean['WorkWeekHrs'] = df_clean['WorkWeekHrs'].clip(lower=0, upper=80)
+    if 'CodeRevHrs' in df_clean.columns:
+        df_clean['CodeRevHrs'] = df_clean['CodeRevHrs'].clip(lower=0, upper=24)
+
+    if 'ConvertedComp' in df_clean.columns:
+        df_clean['ConvertedComp_is_missing'] = df_clean['ConvertedComp'].isna().astype(int)
+        df_clean['ConvertedComp'] = pd.to_numeric(df_clean['ConvertedComp'], errors='coerce')
+        
+        mediana_salarial = df_clean[df_clean['ConvertedComp'] > 0]['ConvertedComp'].median()
+        
+        df_clean['ConvertedComp'] = df_clean['ConvertedComp'].replace(0, np.nan)
+        df_clean['ConvertedComp'] = df_clean['ConvertedComp'].fillna(mediana_salarial)
+        df_clean['ConvertedComp'] = df_clean['ConvertedComp'].clip(lower=10000, upper=300000)
+
+    # Variables categóricas que requieren mapeo
+    all_text_cols = [
+        'Hobbyist', 'OpenSourcer', 'Employment', 'CareerSat', 'JobSat', 
+        'MgrIdiot', 'MgrWant', 'JobSeek', 'LastHireDate', 'ResumeUpdate', 
+        'WorkPlan', 'WorkChallenge', 'WorkRemote', 'WorkLoc', 'CodeRev', 
+        'PurchaseHow', 'PurchaseWhat', 'BetterLife', 'SocialMedia', 
+        'Extraversion', 'SOVisitTo', 'SOPartFreq', 'WelcomeChange']
+    
+    for col in all_text_cols:
+        if col in df_clean.columns:
+            df_clean[col] = df_clean[col].fillna('Not Provided')
+            
+    return df_clean
+
 def codificar_multilabel(df, col, top_n=20):
     """
     Convierte una columna de elementos separados por ';' en múltiples columnas binarias.
