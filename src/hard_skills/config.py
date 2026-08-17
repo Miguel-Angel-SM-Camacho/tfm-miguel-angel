@@ -2,7 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RAW_DATA_PATH_2025 = os.path.join(BASE_DIR, 'data','raw', 'results_2025.csv')
-PROCESSED_EDA_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'survey_cleaned_eda.csv')
+PROCESSED_EDA_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'survey_cleaned_eda_hard.csv')
 MODEL_MATRIX_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'matriz_autoencoder.csv')
 PAISES_MAPA_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'maestro_paises_mapa.csv')
 

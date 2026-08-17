@@ -2,4 +2,5 @@
 --> La IA y su relevancia en la actualidad https://biblioteca.ua.es/es/noticias/2025/el-impacto-de-la-ia-en-la-sociedad.html
 --> Procesos de selección de personal hoy en día https://vipdistrict.com/es/blog/evolucion-del-proceso-de-seleccion/  --  INforme de EUROSTAT: https://ec.europa.eu/eurostat/web/products-statistical-books/-/ks-cd-05-001
 --> Metodologías de desarrollo https://www.santanderopenacademy.com/es/blog/metodologias-desarrollo-software.html
---> Metodología Ágil https://www.unir.net/revista/ingenieria/metodologia-agile/
+--> Metodología Ágil https://www.unir.net/revista/ingenieria/metodologia-agile/, https://www.agile-academy.com/es/diccionario-agil/manifiesto-agil/
+
