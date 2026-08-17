@@ -28,7 +28,7 @@ def limpieza_soft_skills_2019(df):
     labor_cols = [
         'CareerSat', 'JobSat', 'MgrIdiot', 'MgrWant', 'WorkPlan', 
         'WorkChallenge', 'WorkRemote', 'WorkLoc', 'CodeRev', 
-        'PurchaseHow', 'PurchaseWhat'
+        'PurchaseHow', 'PurchaseWhat', 'ImpSyn', 'JobFactors'
     ]
     
     # Columnas de personalidad
@@ -92,12 +92,7 @@ def _normalizar_opensourcer(valor):
 def calcular_proxies_bigfive(df):
     """Calcula scores continuos (0-1) y buckets categóricos (cortes fijos, calibrados
     por variable según su distribución observada) para Neuroticismo, Amabilidad y Apertura,
-    como proxies conductuales de Big Five.
-
-    NOTA METODOLÓGICA: no son los rasgos Big Five reales (medidos vía IPIP u otro 
-    instrumento psicométrico validado), sino aproximaciones derivadas de variables 
-    conductuales disponibles en la encuesta de StackOverflow 2019. Se documentan 
-    como limitación del proyecto."""
+    como proxies conductuales de Big Five."""
 
     df = df.copy()
 
@@ -140,3 +135,14 @@ def _bucket_fijo(score, cortes):
         return 'Medio'
     else:
         return 'Alto'
+
+def codificar_multilabel(df, col, top_n=20, sep=';'):
+    """Parsea una columna de texto multi-valor (separado por `sep`) y crea columnas 
+    binarias [0,1] para las top_n categorías más frecuentes. Elimina la columna original."""
+    df = df.copy()
+    listas = df[col].fillna('').apply(lambda x: [v.strip() for v in x.split(sep) if v.strip()])
+    top_valores = listas.explode().value_counts().head(top_n).index.tolist()
+    for valor in top_valores:
+        df[f"{col}_{valor}"] = listas.apply(lambda lst: int(valor in lst))
+    return df.drop(columns=[col])
+
