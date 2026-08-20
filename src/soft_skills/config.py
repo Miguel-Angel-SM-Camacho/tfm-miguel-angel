@@ -5,6 +5,8 @@ RAW_DATA_PATH_2019 = os.path.join(BASE_DIR, 'data','raw', 'results_2019.csv')
 PROCESSED_EDA_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'survey_cleaned_eda_soft.csv')
 MATRIZ_TRANSACCIONAL_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'matriz_transaccional_soft.csv')
 MODEL_MATRIX_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'matriz_autoencoder.csv')
+REGLAS_APRIORI_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'reglas_apriori_soft.csv')
+REGLAS_LIMPIAS_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'reglas_limpias_soft.csv')
 
 OPENSOURCER_MAPPING = {
     'Never': 1, 
