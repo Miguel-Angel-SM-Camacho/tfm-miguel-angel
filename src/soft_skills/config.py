@@ -7,6 +7,7 @@ MATRIZ_TRANSACCIONAL_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'matriz_
 MODEL_MATRIX_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'matriz_autoencoder.csv')
 REGLAS_APRIORI_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'reglas_apriori_soft.csv')
 REGLAS_LIMPIAS_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'reglas_limpias_soft.csv')
+REGLAS_EXPERTAS_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'reglas_expertas_riesgo.json')
 
 OPENSOURCER_MAPPING = {
     'Never': 1, 

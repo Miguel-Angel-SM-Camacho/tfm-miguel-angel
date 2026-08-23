@@ -1,0 +1,268 @@
+{
+  "fuente": "Riesgos.docx",
+  "descripcion": "Transcripción estructurada de las 27 reglas de riesgo del experto (Aurora Vizcaíno Barceló). Cada regla se clasifica en un tipo según cómo puede evaluarse dentro del framework NetSTAFF.",
+  "tipos": {
+    "soft_parcial": "Al menos una condición es evaluable con datos de candidato individual (encuesta soft skills 2019). La regla completa no es evaluable si combina condiciones de proyecto/equipo.",
+    "hard_parcial": "Al menos una condición es evaluable con datos de candidato individual (encuesta hard skills 2025). Pendiente de reconstrucción del pipeline hard skills.",
+    "proyecto_json": "Todas las condiciones son atributos de proyecto/equipo, no de candidato individual. Se evalúa por comprobación directa de campos del JSON de proyecto en la fase de matching, no por minería de reglas."
+  },
+  "reglas": [
+    {
+      "id": 1,
+      "condicion_texto": "Si el equipo está distribuido en zonas horarias con poco solapamiento, pueden surgir fallos de comunicación que retrasen entregas y generen malentendidos.",
+      "riesgo": "Fallos de comunicación y retrasos en entregas",
+      "mitigacion": "Implementar actualizaciones asíncronas diarias, utilizar herramientas de comunicación asíncrona eficaces y establecer normas de comunicación.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["timezone_overlap_hours"]
+    },
+    {
+      "id": 2,
+      "condicion_texto": "Si el proyecto involucra múltiples países y no se han definido herramientas de comunicación, podrán surgir problemas de coordinación.",
+      "riesgo": "Problemas de coordinación",
+      "mitigacion": "Implementar herramientas de comunicación tanto síncronas como asíncronas, y establecer normas de comunicación claras.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["countries_involved", "tools_used"]
+    },
+    {
+      "id": 3,
+      "condicion_texto": "Si el equipo es multicultural y no todos los países hablan el idioma común del proyecto, pueden surgir problemas de distancia socio-cultural que dificulten la comprensión.",
+      "riesgo": "Distancia socio-cultural / dificultad de comprensión",
+      "mitigacion": "Proporcionar formación en el idioma común, emplear servicios de traducción, documentar en el mismo idioma y asignar facilitadores bilingües.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["countries_involved", "common_project_language"]
+    },
+    {
+      "id": 4,
+      "condicion_texto": "Si el equipo multicultural no tiene definido un idioma común de proyecto, la falta de un mismo idioma compartido provocará malentendidos.",
+      "riesgo": "Malentendidos por falta de idioma común",
+      "mitigacion": "Definir un idioma común de proyecto, proporcionar formación en idiomas, usar servicios de traducción y documentar todo en dicho idioma.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["common_project_language"]
+    },
+    {
+      "id": 5,
+      "condicion_texto": "Si el proyecto tiene bajo solapamiento horario, distintas zonas horarias y reuniones frecuentes, podrán surgir problemas que dificulten la sincronización del equipo.",
+      "riesgo": "Problemas de sincronización del equipo",
+      "mitigacion": "Establecer horas de trabajo para todo el equipo, rotar los horarios de reuniones equitativamente, usar comunicación asíncrona, grabar reuniones importantes y asignar empleados con flexibilidad horaria.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["timezone_overlap_hours", "meetings_per_week"]
+    },
+    {
+      "id": 6,
+      "condicion_texto": "Si el equipo carece de varias tecnologías del proyecto o la cobertura tecnológica es inferior al 50%, surgirá un problema de habilidades que afectará la calidad y velocidad de desarrollo.",
+      "riesgo": "Problema de habilidades / calidad y velocidad de desarrollo",
+      "mitigacion": "Contratar especialistas en las tecnologías críticas, implementar un programa de formación y añadir un perfil senior para mentoría.",
+      "tipo": "hard_parcial",
+      "items_soft": [],
+      "items_hard_esperados": "Pendiente de definir cuando se reconstruya el pipeline de hard skills (cobertura de stack tecnológico del candidato frente a tech_stack_required del proyecto).",
+      "campos_proyecto_relacionados": ["tech_stack_required"]
+    },
+    {
+      "id": 7,
+      "condicion_texto": "Si el proyecto utiliza varias herramientas sin integración, surgirá fragmentación de herramientas que generará confusión y pérdida de productividad.",
+      "riesgo": "Fragmentación de herramientas",
+      "mitigacion": "Limitar el número de herramientas y asegurar su integración.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["tools_used", "tools_integrated"]
+    },
+    {
+      "id": 8,
+      "condicion_texto": "Si los miembros del equipo trabajan en más de dos proyectos concurrentes, superan las 45 horas semanales o presentan alta tendencia al estrés, podrá surgir una sobrecarga de trabajo.",
+      "riesgo": "Sobrecarga de trabajo",
+      "mitigacion": "Redistribuir la carga de trabajo o contratar más recursos, reducir la concurrencia de proyectos o ampliar los plazos de entrega.",
+      "tipo": "soft_parcial",
+      "items_soft": ["Neuroticismo_Nivel_Alto", "WorkWeekHrs_Bin_>55h"],
+      "campos_proyecto_relacionados": ["concurrent_projects_per_member"],
+      "nota": "La condición de más de 2 proyectos concurrentes no es evaluable con datos de candidato individual (no existe en la encuesta de 2019)."
+    },
+    {
+      "id": 9,
+      "condicion_texto": "Si existen choques de personalidad o mala comunicación entre miembros del equipo, podrán surgir conflictos que afectarán la productividad y el ambiente laboral.",
+      "riesgo": "Conflictos entre miembros del equipo",
+      "mitigacion": "Aplicar mediación de conflictos, realizar actividades de team building y clarificar roles y responsabilidades.",
+      "tipo": "proyecto_json",
+      "confirmado": false,
+      "items_soft": [],
+      "campos_proyecto_relacionados": [],
+      "nota": "ZONA GRIS, pendiente de confirmación del usuario. Describe una dinámica ENTRE miembros del equipo (compatibilidad cruzada de personalidades), no un rasgo individual de una persona — no equivale a 'tiene baja amabilidad'. No hay campo de proyecto que la capture directamente tampoco; solo sería evaluable a nivel de equipo ya ensamblado (fase 3 de la arquitectura), comparando pares de rasgos entre miembros."
+    },
+    {
+      "id": 10,
+      "condicion_texto": "Si el equipo presenta neuroticismo alto, alta carga de trabajo y requiere comunicación síncrona con bajo solapamiento horario, podrán surgir burnout.",
+      "riesgo": "Burnout",
+      "mitigacion": "Definir límites claros de carga de trabajo, establecer topes de horas y promover políticas de bienestar y equilibrio vida-trabajo.",
+      "tipo": "soft_parcial",
+      "items_soft": ["Neuroticismo_Nivel_Alto", "WorkWeekHrs_Bin_45-55h"],
+      "campos_proyecto_relacionados": ["timezone_overlap_hours"],
+      "nota": "La condición de bajo solapamiento horario con comunicación síncrona requerida no es evaluable con datos de candidato individual."
+    },
+    {
+      "id": 11,
+      "condicion_texto": "Si el trabajo remoto supera el 70%, no hay reuniones presenciales anuales, no existe experiencia previa conjunta ni actividades de team building, puede producirse aislamiento social.",
+      "riesgo": "Aislamiento social",
+      "mitigacion": "Fomentar canales de comunicación social, organizar actividades de team building remotas y presenciales y dar visibilidad al trabajo de cada miembro.",
+      "tipo": "soft_parcial",
+      "items_soft": ["WorkRemote_Bucket_Remoto Alto (>70%)"],
+      "campos_proyecto_relacionados": ["has_annual_inperson_meeting", "has_prior_team_experience", "has_team_building_activities"],
+      "nota": "Solo la condición de trabajo remoto >70% es evaluable a nivel de candidato; las otras tres condiciones son atributos de proyecto/equipo."
+    },
+    {
+      "id": 12,
+      "condicion_texto": "Si el equipo tiene baja amabilidad, alta diversidad cultural y múltiples equipos involucrados, podrán surgir riesgo de conflictos.",
+      "riesgo": "Riesgo de conflictos",
+      "mitigacion": "Establecer protocolos de comunicación claros, definir un proceso explícito de resolución de conflictos y asegurar claridad de roles y responsabilidades.",
+      "tipo": "soft_parcial",
+      "items_soft": ["Amabilidad_Nivel_Bajo"],
+      "campos_proyecto_relacionados": ["countries_involved", "multiple_teams_involved"],
+      "nota": "Solo la condición de baja amabilidad es evaluable a nivel de candidato individual."
+    },
+    {
+      "id": 13,
+      "condicion_texto": "Si el equipo está compuesto por nuevos miembros, no hay programa de mentoría ni documentación de onboarding, podrán surgir problemas de incorporación.",
+      "riesgo": "Problemas de incorporación",
+      "mitigacion": "Implementar un programa de mentoría, crear un pack de bienvenida con documentación y contactos clave y programar reuniones de presentación.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["mentorship_program", "onboarding_program"]
+    },
+    {
+      "id": 14,
+      "condicion_texto": "Si hay personas de diferentes culturas en el proyecto, pueden surgir malentendidos derivados de la distancia socio-cultural que provoquen retrasos en las entregas.",
+      "riesgo": "Malentendidos socio-culturales / retrasos",
+      "mitigacion": "Implementar formación socio-cultural, establecer normas de comunicación culturalmente sensibles y asignar mediadores culturales.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["countries_involved"]
+    },
+    {
+      "id": 15,
+      "condicion_texto": "Si el proyecto requiere un alto nivel de autonomía del equipo, pueden surgir problemas si el equipo no está preparado para trabajar con ese grado de independencia.",
+      "riesgo": "Problemas de autonomía",
+      "mitigacion": "Evaluar la capacidad real del equipo, proporcionar formación, ajustar la estructura de supervisión.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["project_complexity"],
+      "nota": "Podría relacionarse en el futuro con WorkPlan (preferencia de autodirección del candidato), pero tal como está redactada la regla compara un requisito de proyecto con la preparación del equipo, no con un rasgo individual directo."
+    },
+    {
+      "id": 16,
+      "condicion_texto": "Si existen múltiples dependencias críticas y varios equipos, pueden producirse bloqueos que retrasen el proyecto.",
+      "riesgo": "Bloqueos que retrasan el proyecto",
+      "mitigacion": "Realizar reuniones semanales de sincronización, añadir tiempo de integración a la planificación y definir interfaces claras entre equipos.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["critical_dependencies", "multiple_teams_involved"]
+    },
+    {
+      "id": 17,
+      "condicion_texto": "Si la descripción del proyecto es vaga, la documentación incompleta y los roles clave no están definidos, podrá surgir el riesgo de aumento no controlado del alcance.",
+      "riesgo": "Aumento no controlado del alcance",
+      "mitigacion": "Realizar una reunión inicial de requisitos, definir un MVP claro y mantener alineación con los stakeholders.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["documentation_level", "roles_clearly_defined"]
+    },
+    {
+      "id": 18,
+      "condicion_texto": "Si el equipo supera los ocho miembros y los roles no están claramente definidos, podrá surgir falta de claridad.",
+      "riesgo": "Falta de claridad",
+      "mitigacion": "Definir roles y responsabilidades y revisarlos al inicio del proyecto con todo el equipo.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["team_size", "roles_clearly_defined"]
+    },
+    {
+      "id": 19,
+      "condicion_texto": "Si el proyecto requiere alta flexibilidad horaria, pueden surgir problemas de coordinación y disponibilidad.",
+      "riesgo": "Problemas de coordinación y disponibilidad",
+      "mitigacion": "Evaluar la flexibilidad del equipo, establecer horas centrales y definir ventanas de disponibilidad.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["flexible_hours_required"]
+    },
+    {
+      "id": 20,
+      "condicion_texto": "Si el proyecto requiere alta disponibilidad para viajes, pueden producirse problemas logísticos y de coste.",
+      "riesgo": "Problemas logísticos y de coste",
+      "mitigacion": "Evaluar la disponibilidad del equipo, planificar viajes con antelación, priorizar reuniones virtuales y presupuestar los costes.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["travel_required"]
+    },
+    {
+      "id": 21,
+      "condicion_texto": "Si el equipo es numeroso, no hay herramientas de gestión del conocimiento y la documentación es mínima, podrá surgir una brecha en la gestión del conocimiento.",
+      "riesgo": "Brecha en la gestión del conocimiento",
+      "mitigacion": "Implementar un sistema de gestión del conocimiento, mantener una wiki actualizada y documentar el trabajo de forma continua.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["team_size", "knowledge_management_system", "documentation_level"]
+    },
+    {
+      "id": 22,
+      "condicion_texto": "Si el modo de trabajo no es presencial y no existen políticas, existirá falta de soporte para el trabajo remoto.",
+      "riesgo": "Falta de soporte para el trabajo remoto",
+      "mitigacion": "Definir políticas claras, proporcionar herramientas adecuadas y ofrecer soporte técnico y ergonómico.",
+      "tipo": "soft_parcial",
+      "items_soft": ["WorkRemote_Bucket_Remoto Alto (>70%)"],
+      "items_soft_alternativos": ["WorkRemote_Bucket_Rem. Parcial (30-70%)"],
+      "campos_proyecto_relacionados": ["disconnection_policy"],
+      "nota": "La condición de modo no presencial es evaluable (WorkRemote_Bucket distinto de 'Presencial / Bajo remoto'); la existencia de políticas de empresa no lo es a nivel de candidato."
+    },
+    {
+      "id": 23,
+      "condicion_texto": "Si el equipo tiene baja apertura a la experiencia y el proyecto es de alta complejidad, podrá surgir resistencia al cambio.",
+      "riesgo": "Resistencia al cambio",
+      "mitigacion": "Aplicar planes de adopción progresiva, mentoría en áreas nuevas y limitar cambios simultáneos.",
+      "tipo": "soft_parcial",
+      "items_soft": ["Apertura_Nivel_Bajo"],
+      "campos_proyecto_relacionados": ["project_complexity"],
+      "nota": "Solo la condición de baja apertura a la experiencia es evaluable a nivel de candidato individual."
+    },
+    {
+      "id": 24,
+      "condicion_texto": "Si el trabajo es completamente remoto, hay un número elevado de reuniones y no existe política de desconexión, podrá surgir fatiga digital.",
+      "riesgo": "Fatiga digital",
+      "mitigacion": "Establecer días sin reuniones, promover pausas y utilizar alternativas asíncronas.",
+      "tipo": "soft_parcial",
+      "items_soft": ["WorkRemote_Bucket_Remoto Alto (>70%)", "WorkChallenge_Meetings"],
+      "campos_proyecto_relacionados": ["disconnection_policy"],
+      "nota": "Trabajo remoto alto y percepción de exceso de reuniones son evaluables a nivel de candidato; la existencia de política de desconexión es un atributo de proyecto/empresa."
+    },
+    {
+      "id": 25,
+      "condicion_texto": "Si el modo de trabajo es remoto, no hay política de desconexión ni horario definido y los plazos son ajustados, podrá surgir burnout.",
+      "riesgo": "Burnout",
+      "mitigacion": "Definir políticas claras de desconexión y respetar los horarios fuera de trabajo.",
+      "tipo": "soft_parcial",
+      "items_soft": ["WorkRemote_Bucket_Remoto Alto (>70%)", "WorkPlan_There's no schedule or spec; I work on what seems most important or urgent"],
+      "campos_proyecto_relacionados": ["disconnection_policy", "deadline_tightness"],
+      "nota": "Trabajo remoto alto y ausencia de horario/plan definido (WorkPlan) son evaluables a nivel de candidato; política de desconexión y ajuste de plazos son atributos de proyecto."
+    },
+    {
+      "id": 26,
+      "condicion_texto": "Si hay un número excesivo de reuniones y múltiples equipos distribuidos, podrá surgir burnout.",
+      "riesgo": "Burnout",
+      "mitigacion": "Limitar la duración de las reuniones y priorizar la comunicación asíncrona.",
+      "tipo": "soft_parcial",
+      "items_soft": ["WorkChallenge_Meetings"],
+      "campos_proyecto_relacionados": ["multiple_teams_involved"],
+      "nota": "Componente débil: solo la percepción individual de exceso de reuniones es evaluable; 'múltiples equipos distribuidos' es un atributo de proyecto."
+    },
+    {
+      "id": 27,
+      "condicion_texto": "Si el proyecto utiliza demasiadas herramientas digitales y no hay formación adecuada, podrán surgir sobrecarga.",
+      "riesgo": "Sobrecarga por herramientas digitales",
+      "mitigacion": "Consolidar herramientas tecnológicas, proporcionar formación completa y realizar cambios de forma gradual.",
+      "tipo": "proyecto_json",
+      "items_soft": [],
+      "campos_proyecto_relacionados": ["tools_used"]
+    }
+  ]
+}
