@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import requests
 from src.hard_skills import config 
+import pytz
+
 
 def limpieza_datos(df):
     """
@@ -9,20 +11,16 @@ def limpieza_datos(df):
     tratamiento especial para salario y mapeo de categóricas.
     """
     df_clean = df.copy()
-    
-    df_clean = df_clean.drop_duplicates(keep='first')
 
     for col in config.NUM_COLS:
         if col in df_clean.columns:
             df_clean[f'{col}_is_missing'] = df_clean[col].isna().astype(int)
-            df_clean[col] = pd.to_numeric(df_clean[col], errors='coerce').fillna(0)
+            df_clean[col] = pd.to_numeric(df_clean[col], errors='coerce')
 
     if 'ConvertedCompYearly' in df_clean.columns:
         df_clean['ConvertedCompYearly_is_missing'] = df_clean['ConvertedCompYearly'].isna().astype(int)
         df_clean['ConvertedCompYearly'] = pd.to_numeric(df_clean['ConvertedCompYearly'], errors='coerce')
-        
         mediana_salarial = df_clean[df_clean['ConvertedCompYearly'] > 0]['ConvertedCompYearly'].median()
-        
         df_clean['ConvertedCompYearly'] = df_clean['ConvertedCompYearly'].replace(0, np.nan)
         df_clean['ConvertedCompYearly'] = df_clean['ConvertedCompYearly'].fillna(mediana_salarial)
         df_clean['ConvertedCompYearly'] = df_clean['ConvertedCompYearly'].clip(lower=10000, upper=300000)
@@ -31,15 +29,16 @@ def limpieza_datos(df):
         df_clean = df_clean[df_clean['YearsCode'] <= 65]
     if 'WorkExp' in df_clean.columns:
         df_clean = df_clean[df_clean['WorkExp'] <= 65]
-    
-    if 'EdLevel' in df_clean.columns:
-        df_clean['EdLevel'] = df_clean['EdLevel'].map(config.ED_LEVEL_MAPPING).fillna(0).astype(int)
-    if 'RemoteWork' in df_clean.columns:
-        df_clean['RemoteWork'] = df_clean['RemoteWork'].map(config.MAPEO_MODALIDADES).fillna(0).astype(int)
-    if 'OrgSize' in df_clean.columns:
-        df_clean['OrgSize'] = df_clean['OrgSize'].map(config.ORG_SIZE_MAPPING).fillna(0).astype(int)
-    if 'Industry' in df_clean.columns:
-        df_clean['Industry'] = df_clean['Industry'].map(config.INDUSTRY_MAPPING).fillna(0).astype(int)
+
+    for col, mapeo in [
+        ('EdLevel', config.ED_LEVEL_MAPPING),
+        ('RemoteWork', config.MAPEO_MODALIDADES),
+        ('OrgSize', config.ORG_SIZE_MAPPING),
+        ('Industry', config.INDUSTRY_MAPPING),
+    ]:
+        if col in df_clean.columns:
+            df_clean[f'{col}_is_missing'] = df_clean[col].isna().astype(int)
+            df_clean[col] = df_clean[col].map(mapeo).astype('Int64')  # Int64 (nullable) admite NaN
 
     all_text_cols = config.TECH_COLS + config.CAT_COLS_TEXT
     for col in all_text_cols:
@@ -61,7 +60,7 @@ def codificar_multilabel(df, col, top_n=20):
 
 def datos_geografia(paises_serie):
     """
-    Se conecta a una API externa para mapear países a continentes y zonas horarias.
+    Se conecta a una API externa para mapear países a continentes, idiomas y zonas horarias 
     """
     unicos = [c for c in paises_serie.unique() if pd.notna(c) and str(c) not in ('nan', 'None', '')]
 
@@ -79,9 +78,12 @@ def datos_geografia(paises_serie):
             for t in c['translations'].values():
                 nombres.extend([t.get('common'), t.get('official')])
 
+        cca2 = c.get('cca2', '')
+        zonas_pais = pytz.country_timezones.get(cca2, [])
+
         info = {
             'Idiomas_Oficiales': ", ".join(c.get('languages', {}).values()),
-            'Zonas_Horarias': ", ".join(c.get('timezones', [])) if isinstance(c.get('timezones', []), list) else str(c.get('timezones', '')),
+            'Zonas_Horarias': ", ".join(zonas_pais) if zonas_pais else 'UTC',
             'Continente': c.get('region', 'Other'),
             'Region': c.get('subregion', 'Other'),
             'Coordenadas': f"{c.get('latlng', [0.0, 0.0])[0]}, {c.get('latlng', [0.0, 0.0])[1]}"
@@ -98,13 +100,8 @@ def datos_geografia(paises_serie):
     maestro_list = []
     for pais in unicos:
         nombre_buscar = config.TRADUCCIONES.get(pais, pais).lower()
-        
         info_pais = lookup.get(nombre_buscar, fallback)
-        
-        maestro_list.append({
-            'Pais_Original': pais,
-            **info_pais
-        })
+        maestro_list.append({'Pais_Original': pais, **info_pais})
 
     df_maestro = pd.DataFrame(maestro_list)
     df_maestro.to_csv(config.PAISES_MAPA_PATH, index=False, sep=';', encoding='utf-8-sig')

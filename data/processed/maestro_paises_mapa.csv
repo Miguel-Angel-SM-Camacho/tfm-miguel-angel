@@ -1,177 +1,170 @@
 ﻿Pais_Original;Idiomas_Oficiales;Zonas_Horarias;Continente;Region;Coordenadas
-Ukraine;Ukrainian;;Europe;Eastern Europe;49, 32
-Netherlands;Dutch;;Europe;Western Europe;52.5, 5.75
-India;English, Hindi, Tamil;;Asia;Southern Asia;20, 77
-Georgia;Georgian;;Asia;Western Asia;42, 43.5
-Australia;English;;Oceania;Australia and New Zealand;-27, 133
-Greece;Greek;;Europe;Southern Europe;39, 22
-Germany;German;;Europe;Western Europe;51, 9
-Bangladesh;Bengali;;Asia;Southern Asia;24, 90
-Brazil;Portuguese;;Americas;South America;-10, -55
-United States of America;English;;Americas;North America;38, -97
-Lithuania;Lithuanian;;Europe;Northern Europe;56, 24
-United Kingdom of Great Britain and Northern Ireland;English;;Europe;Northern Europe;54, -2
-Ireland;English, Irish;;Europe;Northern Europe;53, -8
-Sweden;Swedish;;Europe;Northern Europe;62, 15
-Dominican Republic;Spanish;;Americas;Caribbean;19, -70.66666666
-Austria;Austro-Bavarian German;;Europe;Central Europe;47.33333333, 13.33333333
-Belgium;German, French, Dutch;;Europe;Western Europe;50.83333333, 4
-Czech Republic;Czech, Slovak;;Europe;Central Europe;49.75, 15.5
-Italy;Italian;;Europe;Southern Europe;42.83333333, 12.83333333
-Hungary;Hungarian;;Europe;Central Europe;47, 20
-Malaysia;English, Malay;;Asia;South-Eastern Asia;2.5, 112.5
-Switzerland;French, Swiss German, Italian, Romansh;;Europe;Western Europe;47, 8
-Egypt;Arabic;;Africa;Northern Africa;27, 30
-Sri Lanka;Sinhala, Tamil;;Asia;Southern Asia;7, 81
-Poland;Polish;;Europe;Central Europe;52, 20
-Spain;Spanish;;Europe;Southern Europe;40, -4
-Russian Federation;Russian;;Europe;Eastern Europe;60, 100
-Serbia;Serbian;;Europe;Southeast Europe;44, 21
-Japan;Japanese;;Asia;Eastern Asia;36, 138
-France;French;;Europe;Western Europe;46, 2
-Romania;Romanian;;Europe;Southeast Europe;46, 25
-Canada;English, French;;Americas;North America;60, -95
-Uruguay;Spanish;;Americas;South America;-33, -56
-United Arab Emirates;Arabic;;Asia;Western Asia;24, 54
-Argentina;Guaraní, Spanish;;Americas;South America;-34, -64
-Norway;Norwegian Nynorsk, Norwegian Bokmål, Sami;;Europe;Northern Europe;62, 10
-Slovakia;Slovak;;Europe;Central Europe;48.66666666, 19.5
-Republic of Moldova;Moldavian;;Europe;Eastern Europe;47, 29
-Peru;Aymara, Quechua, Spanish;;Americas;South America;-10, -76
-Portugal;Portuguese;;Europe;Southern Europe;39.5, -8
-Costa Rica;Spanish;;Americas;Central America;10, -84
-Croatia;Croatian;;Europe;Southeast Europe;45.16666666, 15.5
-Iran, Islamic Republic of...;Persian (Farsi);;Asia;Southern Asia;32, 53
-Philippines;English, Filipino;;Asia;South-Eastern Asia;13, 122
-China;Chinese;;Asia;Eastern Asia;35, 105
-Finland;Finnish, Swedish;;Europe;Northern Europe;64, 26
-Colombia;Spanish;;Americas;South America;4, -72
-Ethiopia;Amharic;;Africa;Eastern Africa;8, 38
-Israel;Arabic, Hebrew;;Asia;Western Asia;31.47, 35.13
-Bulgaria;Bulgarian;;Europe;Southeast Europe;43, 25
-Morocco;Arabic, Berber;;Africa;Northern Africa;32, -5
-Mexico;Spanish;;Americas;North America;23, -102
-Turkey;English;UTC;Other;Other;0.0, 0.0
-Bolivia;Aymara, Guaraní, Quechua, Spanish;;Americas;South America;-17, -65
-Nepal;Nepali;;Asia;Southern Asia;28, 84
-Pakistan;English, Urdu;;Asia;Southern Asia;30, 70
-South Africa;Afrikaans, English, Southern Ndebele, Northern Sotho, Southern Sotho, Swazi, Tswana, Tsonga, Venda, Xhosa, Zulu;;Africa;Southern Africa;-29, 24
-Tunisia;Arabic;;Africa;Northern Africa;34, 9
-Singapore;English, Malay, Tamil, Chinese;;Asia;South-Eastern Asia;1.36666666, 103.8
-Paraguay;Guaraní, Spanish;;Americas;South America;-23, -58
-Zimbabwe;Chibarwe, English, Kalanga, Khoisan, Ndau, Northern Ndebele, Chewa, Shona, Sotho, Tonga, Tswana, Tsonga, Venda, Xhosa, Zimbabwean Sign Language;;Africa;Eastern Africa;-20, 30
-Denmark;Danish;;Europe;Northern Europe;56, 10
-Trinidad and Tobago;English;;Americas;Caribbean;11, -61
-Nigeria;English;;Africa;Western Africa;10, 8
-Republic of North Macedonia;Macedonian;;Europe;Southeast Europe;41.83333333, 22
-Cyprus;Greek, Turkish;;Europe;Southern Europe;35, 33
-Latvia;Latvian;;Europe;Northern Europe;57, 25
-Malta;English, Maltese;;Europe;Southern Europe;35.83333333, 14.58333333
-Hong Kong (S.A.R.);English, Chinese;;Asia;Eastern Asia;22.267, 114.188
-Luxembourg;German, French, Luxembourgish;;Europe;Western Europe;49.75, 6.16666666
-Taiwan;Chinese;;Asia;Eastern Asia;23.5, 121
-Viet Nam;Vietnamese;;Asia;South-Eastern Asia;16.16666666, 107.83333333
-Chile;Spanish;;Americas;South America;-30, -71
-Republic of Korea;Korean;;Asia;Eastern Asia;37, 127.5
-Uganda;English, Swahili;;Africa;Eastern Africa;1, 32
-Lebanon;Arabic, French;;Asia;Western Asia;33.83333333, 35.83333333
-Jordan;Arabic;;Asia;Western Asia;31, 36
-Indonesia;Indonesian;;Asia;South-Eastern Asia;-5, 120
-Slovenia;Slovene;;Europe;Central Europe;46.11666666, 14.81666666
-Madagascar;French, Malagasy;;Africa;Eastern Africa;-20, 47
-Guatemala;Spanish;;Americas;Central America;15.5, -90.25
-Qatar;Arabic;;Asia;Western Asia;25.5, 51.25
-Thailand;Thai;;Asia;South-Eastern Asia;15, 100
-Bosnia and Herzegovina;Bosnian, Croatian, Serbian;;Europe;Southeast Europe;44, 18
-Armenia;Armenian;;Asia;Western Asia;40, 45
-Venezuela, Bolivarian Republic of...;Spanish;;Americas;South America;8, -66
-Mozambique;Portuguese;;Africa;Eastern Africa;-18.25, 35
-Kazakhstan;Kazakh, Russian;;Asia;Central Asia;48, 68
-Honduras;Spanish;;Americas;Central America;15, -86.5
+Ukraine;Ukrainian;Europe/Simferopol, Europe/Kyiv;Europe;Eastern Europe;49, 32
+Netherlands;Dutch;Europe/Amsterdam;Europe;Western Europe;52.5, 5.75
+India;English, Hindi, Tamil;Asia/Kolkata;Asia;Southern Asia;20, 77
+Australia;English;Australia/Lord_Howe, Antarctica/Macquarie, Australia/Hobart, Australia/Melbourne, Australia/Sydney, Australia/Broken_Hill, Australia/Brisbane, Australia/Lindeman, Australia/Adelaide, Australia/Darwin, Australia/Perth, Australia/Eucla;Oceania;Australia and New Zealand;-27, 133
+Greece;Greek;Europe/Athens;Europe;Southern Europe;39, 22
+Germany;German;Europe/Berlin, Europe/Busingen;Europe;Western Europe;51, 9
+Bangladesh;Bengali;Asia/Dhaka;Asia;Southern Asia;24, 90
+Brazil;Portuguese;America/Noronha, America/Belem, America/Fortaleza, America/Recife, America/Araguaina, America/Maceio, America/Bahia, America/Sao_Paulo, America/Campo_Grande, America/Cuiaba, America/Santarem, America/Porto_Velho, America/Boa_Vista, America/Manaus, America/Eirunepe, America/Rio_Branco;Americas;South America;-10, -55
+United States of America;English;America/New_York, America/Detroit, America/Kentucky/Louisville, America/Kentucky/Monticello, America/Indiana/Indianapolis, America/Indiana/Vincennes, America/Indiana/Winamac, America/Indiana/Marengo, America/Indiana/Petersburg, America/Indiana/Vevay, America/Chicago, America/Indiana/Tell_City, America/Indiana/Knox, America/Menominee, America/North_Dakota/Center, America/North_Dakota/New_Salem, America/North_Dakota/Beulah, America/Denver, America/Boise, America/Phoenix, America/Los_Angeles, America/Anchorage, America/Juneau, America/Sitka, America/Metlakatla, America/Yakutat, America/Nome, America/Adak, Pacific/Honolulu;Americas;North America;38, -97
+Lithuania;Lithuanian;Europe/Vilnius;Europe;Northern Europe;56, 24
+United Kingdom of Great Britain and Northern Ireland;English;Europe/London;Europe;Northern Europe;54, -2
+Ireland;English, Irish;Europe/Dublin;Europe;Northern Europe;53, -8
+Sweden;Swedish;Europe/Stockholm;Europe;Northern Europe;62, 15
+Dominican Republic;Spanish;America/Santo_Domingo;Americas;Caribbean;19, -70.66666666
+Belgium;German, French, Dutch;Europe/Brussels;Europe;Western Europe;50.83333333, 4
+Czech Republic;Czech, Slovak;Europe/Prague;Europe;Central Europe;49.75, 15.5
+Italy;Italian;Europe/Rome;Europe;Southern Europe;42.83333333, 12.83333333
+Hungary;Hungarian;Europe/Budapest;Europe;Central Europe;47, 20
+Malaysia;English, Malay;Asia/Kuala_Lumpur, Asia/Kuching;Asia;South-Eastern Asia;2.5, 112.5
+Switzerland;French, Swiss German, Italian, Romansh;Europe/Zurich;Europe;Western Europe;47, 8
+Egypt;Arabic;Africa/Cairo;Africa;Northern Africa;27, 30
+Austria;Austro-Bavarian German;Europe/Vienna;Europe;Central Europe;47.33333333, 13.33333333
+Sri Lanka;Sinhala, Tamil;Asia/Colombo;Asia;Southern Asia;7, 81
+Spain;Spanish;Europe/Madrid, Africa/Ceuta, Atlantic/Canary;Europe;Southern Europe;40, -4
+Russian Federation;Russian;Europe/Kaliningrad, Europe/Moscow, Europe/Kirov, Europe/Volgograd, Europe/Astrakhan, Europe/Saratov, Europe/Ulyanovsk, Europe/Samara, Asia/Yekaterinburg, Asia/Omsk, Asia/Novosibirsk, Asia/Barnaul, Asia/Tomsk, Asia/Novokuznetsk, Asia/Krasnoyarsk, Asia/Irkutsk, Asia/Chita, Asia/Yakutsk, Asia/Khandyga, Asia/Vladivostok, Asia/Ust-Nera, Asia/Magadan, Asia/Sakhalin, Asia/Srednekolymsk, Asia/Kamchatka, Asia/Anadyr;Europe;Eastern Europe;60, 100
+Serbia;Serbian;Europe/Belgrade;Europe;Southeast Europe;44, 21
+Poland;Polish;Europe/Warsaw;Europe;Central Europe;52, 20
+Romania;Romanian;Europe/Bucharest;Europe;Southeast Europe;46, 25
+Canada;English, French;America/St_Johns, America/Halifax, America/Glace_Bay, America/Moncton, America/Goose_Bay, America/Blanc-Sablon, America/Toronto, America/Iqaluit, America/Atikokan, America/Winnipeg, America/Resolute, America/Rankin_Inlet, America/Regina, America/Swift_Current, America/Edmonton, America/Cambridge_Bay, America/Inuvik, America/Vancouver, America/Creston, America/Dawson_Creek, America/Fort_Nelson, America/Whitehorse, America/Dawson;Americas;North America;60, -95
+Uruguay;Spanish;America/Montevideo;Americas;South America;-33, -56
+United Arab Emirates;Arabic;Asia/Dubai;Asia;Western Asia;24, 54
+France;French;Europe/Paris;Europe;Western Europe;46, 2
+Argentina;Guaraní, Spanish;America/Argentina/Buenos_Aires, America/Argentina/Cordoba, America/Argentina/Salta, America/Argentina/Jujuy, America/Argentina/Tucuman, America/Argentina/Catamarca, America/Argentina/La_Rioja, America/Argentina/San_Juan, America/Argentina/Mendoza, America/Argentina/San_Luis, America/Argentina/Rio_Gallegos, America/Argentina/Ushuaia;Americas;South America;-34, -64
+Norway;Norwegian Nynorsk, Norwegian Bokmål, Sami;Europe/Oslo;Europe;Northern Europe;62, 10
+Republic of Moldova;Moldavian;Europe/Chisinau;Europe;Eastern Europe;47, 29
+Peru;Aymara, Quechua, Spanish;America/Lima;Americas;South America;-10, -76
+Portugal;Portuguese;Europe/Lisbon, Atlantic/Madeira, Atlantic/Azores;Europe;Southern Europe;39.5, -8
+Costa Rica;Spanish;America/Costa_Rica;Americas;Central America;10, -84
+Iran, Islamic Republic of...;Persian (Farsi);Asia/Tehran;Asia;Southern Asia;32, 53
+Philippines;English, Filipino;Asia/Manila;Asia;South-Eastern Asia;13, 122
+China;Chinese;Asia/Shanghai, Asia/Urumqi;Asia;Eastern Asia;35, 105
+Finland;Finnish, Swedish;Europe/Helsinki;Europe;Northern Europe;64, 26
+Colombia;Spanish;America/Bogota;Americas;South America;4, -72
+Israel;Arabic, Hebrew;Asia/Jerusalem;Asia;Western Asia;31.47, 35.13
+Bulgaria;Bulgarian;Europe/Sofia;Europe;Southeast Europe;43, 25
+Georgia;Georgian;Asia/Tbilisi;Asia;Western Asia;42, 43.5
+Morocco;Arabic, Berber;Africa/Casablanca;Africa;Northern Africa;32, -5
+Mexico;Spanish;America/Mexico_City, America/Cancun, America/Merida, America/Monterrey, America/Matamoros, America/Chihuahua, America/Ciudad_Juarez, America/Ojinaga, America/Mazatlan, America/Bahia_Banderas, America/Hermosillo, America/Tijuana;Americas;North America;23, -102
+Turkey;Turkish;Europe/Istanbul;Asia;Western Asia;39, 35
+Bolivia;Aymara, Guaraní, Quechua, Spanish;America/La_Paz;Americas;South America;-17, -65
+Nepal;Nepali;Asia/Kathmandu;Asia;Southern Asia;28, 84
+Japan;Japanese;Asia/Tokyo;Asia;Eastern Asia;36, 138
+Pakistan;English, Urdu;Asia/Karachi;Asia;Southern Asia;30, 70
+South Africa;Afrikaans, English, Southern Ndebele, Northern Sotho, Southern Sotho, Swazi, Tswana, Tsonga, Venda, Xhosa, Zulu;Africa/Johannesburg;Africa;Southern Africa;-29, 24
+Singapore;English, Malay, Tamil, Chinese;Asia/Singapore;Asia;South-Eastern Asia;1.36666666, 103.8
+Paraguay;Guaraní, Spanish;America/Asuncion;Americas;South America;-23, -58
+Zimbabwe;Chibarwe, English, Kalanga, Khoisan, Ndau, Northern Ndebele, Chewa, Shona, Sotho, Tonga, Tswana, Tsonga, Venda, Xhosa, Zimbabwean Sign Language;Africa/Harare;Africa;Eastern Africa;-20, 30
+Croatia;Croatian;Europe/Zagreb;Europe;Southeast Europe;45.16666666, 15.5
+Tunisia;Arabic;Africa/Tunis;Africa;Northern Africa;34, 9
+Denmark;Danish;Europe/Copenhagen;Europe;Northern Europe;56, 10
+Trinidad and Tobago;English;America/Port_of_Spain;Americas;Caribbean;11, -61
+Republic of North Macedonia;Macedonian;Europe/Skopje;Europe;Southeast Europe;41.83333333, 22
+Cyprus;Greek, Turkish;Asia/Nicosia, Asia/Famagusta;Europe;Southern Europe;35, 33
+Latvia;Latvian;Europe/Riga;Europe;Northern Europe;57, 25
+Malta;English, Maltese;Europe/Malta;Europe;Southern Europe;35.83333333, 14.58333333
+Hong Kong (S.A.R.);English, Chinese;Asia/Hong_Kong;Asia;Eastern Asia;22.267, 114.188
+Luxembourg;German, French, Luxembourgish;Europe/Luxembourg;Europe;Western Europe;49.75, 6.16666666
+Taiwan;Chinese;Asia/Taipei;Asia;Eastern Asia;23.5, 121
+Viet Nam;Vietnamese;Asia/Ho_Chi_Minh;Asia;South-Eastern Asia;16.16666666, 107.83333333
+Chile;Spanish;America/Santiago, America/Coyhaique, America/Punta_Arenas, Pacific/Easter;Americas;South America;-30, -71
+Uganda;English, Swahili;Africa/Kampala;Africa;Eastern Africa;1, 32
+Lebanon;Arabic, French;Asia/Beirut;Asia;Western Asia;33.83333333, 35.83333333
+Jordan;Arabic;Asia/Amman;Asia;Western Asia;31, 36
+Indonesia;Indonesian;Asia/Jakarta, Asia/Pontianak, Asia/Makassar, Asia/Jayapura;Asia;South-Eastern Asia;-5, 120
+Slovakia;Slovak;Europe/Bratislava;Europe;Central Europe;48.66666666, 19.5
+Guatemala;Spanish;America/Guatemala;Americas;Central America;15.5, -90.25
+Qatar;Arabic;Asia/Qatar;Asia;Western Asia;25.5, 51.25
+Bosnia and Herzegovina;Bosnian, Croatian, Serbian;Europe/Sarajevo;Europe;Southeast Europe;44, 18
+Slovenia;Slovene;Europe/Ljubljana;Europe;Central Europe;46.11666666, 14.81666666
+Armenia;Armenian;Asia/Yerevan;Asia;Western Asia;40, 45
+Venezuela, Bolivarian Republic of...;Spanish;America/Caracas;Americas;South America;8, -66
+Mozambique;Portuguese;Africa/Maputo;Africa;Eastern Africa;-18.25, 35
+Thailand;Thai;Asia/Bangkok;Asia;South-Eastern Asia;15, 100
+Madagascar;French, Malagasy;Indian/Antananarivo;Africa;Eastern Africa;-20, 47
 Nomadic;English;UTC;Other;Other;0.0, 0.0
-Algeria;Arabic;;Africa;Northern Africa;28, 3
-Nicaragua;Spanish;;Americas;Central America;13, -85
-Kenya;English, Swahili;;Africa;Eastern Africa;1, 38
-Kyrgyzstan;Kyrgyz, Russian;;Asia;Central Asia;41, 75
-Ghana;English;;Africa;Western Africa;8, -2
-Montenegro;Montenegrin;;Europe;Southeast Europe;42.5, 19.3
-Estonia;Estonian;;Europe;Northern Europe;59, 26
-Ecuador;Spanish;;Americas;South America;-2, -77.5
-South Korea;Korean;;Asia;Eastern Asia;37, 127.5
-New Zealand;English, Māori, New Zealand Sign Language;;Oceania;Australia and New Zealand;-41, 174
-Albania;Albanian;;Europe;Southeast Europe;41, 20
-Fiji;English, Fijian, Fiji Hindi;;Oceania;Melanesia;-18, 175
-Panama;Spanish;;Americas;Central America;9, -80
-Saint Lucia;English;;Americas;Caribbean;13.88333333, -60.96666666
-Haiti;French, Haitian Creole;;Americas;Caribbean;19, -72.41666666
-Bahrain;Arabic;;Asia;Western Asia;26, 50.55
-Iraq;Arabic, Aramaic, Sorani;;Asia;Western Asia;33, 44
-Cambodia;Khmer;;Asia;South-Eastern Asia;13, 105
-Uzbekistan;Russian, Uzbek;;Asia;Central Asia;41, 64
-Tajikistan;Russian, Tajik;;Asia;Central Asia;39, 71
-Zambia;English;;Africa;Eastern Africa;-15, 30
-Yemen;Arabic;;Asia;Western Asia;15, 48
-Mauritius;English, French, Mauritian Creole;;Africa;Eastern Africa;-20.28333333, 57.55
-Belarus;Belarusian, Russian;;Europe;Eastern Europe;53, 28
-Kosovo;Albanian, Serbian;;Europe;Southeast Europe;42.666667, 21.166667
-Suriname;Dutch;;Americas;South America;4, -56
-Togo;French;;Africa;Western Africa;8, 1.16666666
-Maldives;Maldivian;;Asia;Southern Asia;3.25, 73
-Angola;Portuguese;;Africa;Middle Africa;-12.5, 18.5
-Botswana;English, Tswana;;Africa;Southern Africa;-22, 24
-Swaziland;English, Swazi;;Africa;Southern Africa;-26.5, 31.5
-Benin;French;;Africa;Western Africa;9.5, 2.25
-Senegal;French;;Africa;Western Africa;14, -14
-Rwanda;English, French, Kinyarwanda;;Africa;Eastern Africa;-2, 30
-Cameroon;English, French;;Africa;Middle Africa;6, 12
-Palestine;Arabic;;Asia;Western Asia;31.9, 35.2
-Saudi Arabia;Arabic;;Asia;Western Asia;25, 45
-Myanmar;Burmese;;Asia;South-Eastern Asia;22, 98
-Namibia;Afrikaans, German, English, Herero, Khoekhoe, Kwangali, Lozi, Ndonga, Tswana;;Africa;Southern Africa;-22, 17
-Afghanistan;Dari, Pashto, Turkmen;;Asia;Southern Asia;33, 65
-Azerbaijan;Azerbaijani, Russian;;Asia;Western Asia;40.5, 47.5
-Côte d'Ivoire;French;;Africa;Western Africa;8, -5
-Sudan;Arabic, English;;Africa;Northern Africa;15, 30
-Democratic People's Republic of Korea;Korean;;Asia;Eastern Asia;40, 127
-Congo, Republic of the...;English;UTC;Other;Other;0.0, 0.0
-El Salvador;Spanish;;Americas;Central America;13.83333333, -88.91666666
-Isle of Man;English, Manx;;Europe;Northern Europe;54.25, -4.5
-Democratic Republic of the Congo;French, Kikongo, Lingala, Tshiluba, Swahili;;Africa;Middle Africa;0, 25
-Micronesia, Federated States of...;English;UTC;Other;Other;0.0, 0.0
-Iceland;Icelandic;;Europe;Northern Europe;65, -18
-United Republic of Tanzania;English, Swahili;;Africa;Eastern Africa;-6, 35
-Syrian Arab Republic;Arabic;;Asia;Western Asia;35, 38
-Oman;Arabic;;Asia;Western Asia;21, 57
-Bhutan;Dzongkha;;Asia;Southern Asia;27.5, 90.5
-Mauritania;Arabic;;Africa;Western Africa;20, -12
-North Korea;Korean;;Asia;Eastern Asia;40, 127
-Guyana;French;;Americas;South America;4, -53
-Andorra;Catalan;;Europe;Southern Europe;42.5, 1.5
-Kuwait;Arabic;;Asia;Western Asia;29.5, 45.75
-Timor-Leste;Portuguese, Tetum;;Asia;South-Eastern Asia;-8.83333333, 125.91666666
-Mali;French;;Africa;Western Africa;17, -4
-Jamaica;English, Jamaican Patois;;Americas;Caribbean;18.25, -77.5
-Cuba;Spanish;;Americas;Caribbean;21.5, -80
-Gabon;French;;Africa;Middle Africa;-1, 11.75
-Somalia;Arabic, Somali;;Africa;Eastern Africa;10, 49
-Lao People's Democratic Republic;Lao;;Asia;South-Eastern Asia;18, 105
-Turkmenistan;Russian, Turkmen;;Asia;Central Asia;40, 60
-Barbados;English;;Americas;Caribbean;13.16666666, -59.53333333
-Mongolia;Mongolian;;Asia;Eastern Asia;46, 105
-Guinea-Bissau;Portuguese, Upper Guinea Creole;;Africa;Western Africa;12, -15
-Brunei Darussalam;Malay;;Asia;South-Eastern Asia;4.5, 114.66666666
-Libyan Arab Jamahiriya;English;UTC;Other;Other;0.0, 0.0
-Papua New Guinea;English, Hiri Motu, Tok Pisin;;Oceania;Melanesia;-6, 147
-Antigua and Barbuda;English;;Americas;Caribbean;17.05, -61.8
-Sierra Leone;English;;Africa;Western Africa;8.5, -11.5
-Moldova;Moldavian;;Europe;Eastern Europe;47, 29
-Gambia;English;;Africa;Western Africa;13.46666666, -16.56666666
-Malawi;English, Chewa;;Africa;Eastern Africa;-13.5, 34
-Lesotho;English, Sotho;;Africa;Southern Africa;-29.5, 28.5
-San Marino;Italian;;Europe;Southern Europe;43.76666666, 12.41666666
-Djibouti;Arabic, French;;Africa;Eastern Africa;11.5, 43
-Burundi;French, Kirundi;;Africa;Eastern Africa;-3.5, 30
-Belize;Belizean Creole, English, Spanish;;Americas;Central America;17.25, -88.75
-Cape Verde;Portuguese;;Africa;Western Africa;16, -24
-Palau;English, Palauan;;Oceania;Micronesia;7.5, 134.5
-Guinea;French;;Africa;Western Africa;11, -10
+Algeria;Arabic;Africa/Algiers;Africa;Northern Africa;28, 3
+Nigeria;English;Africa/Lagos;Africa;Western Africa;10, 8
+Kenya;English, Swahili;Africa/Nairobi;Africa;Eastern Africa;1, 38
+Kyrgyzstan;Kyrgyz, Russian;Asia/Bishkek;Asia;Central Asia;41, 75
+Nicaragua;Spanish;America/Managua;Americas;Central America;13, -85
+Ghana;English;Africa/Accra;Africa;Western Africa;8, -2
+Estonia;Estonian;Europe/Tallinn;Europe;Northern Europe;59, 26
+Ecuador;Spanish;America/Guayaquil, Pacific/Galapagos;Americas;South America;-2, -77.5
+South Korea;Korean;Asia/Seoul;Asia;Eastern Asia;37, 127.5
+New Zealand;English, Māori, New Zealand Sign Language;Pacific/Auckland, Pacific/Chatham;Oceania;Australia and New Zealand;-41, 174
+Albania;Albanian;Europe/Tirane;Europe;Southeast Europe;41, 20
+Republic of Korea;Korean;Asia/Seoul;Asia;Eastern Asia;37, 127.5
+Haiti;French, Haitian Creole;America/Port-au-Prince;Americas;Caribbean;19, -72.41666666
+Honduras;Spanish;America/Tegucigalpa;Americas;Central America;15, -86.5
+Iraq;Arabic, Aramaic, Sorani;Asia/Baghdad;Asia;Western Asia;33, 44
+Cambodia;Khmer;Asia/Phnom_Penh;Asia;South-Eastern Asia;13, 105
+Uzbekistan;Russian, Uzbek;Asia/Samarkand, Asia/Tashkent;Asia;Central Asia;41, 64
+Tajikistan;Russian, Tajik;Asia/Dushanbe;Asia;Central Asia;39, 71
+Montenegro;Montenegrin;Europe/Podgorica;Europe;Southeast Europe;42.5, 19.3
+Yemen;Arabic;Asia/Aden;Asia;Western Asia;15, 48
+Mauritius;English, French, Mauritian Creole;Indian/Mauritius;Africa;Eastern Africa;-20.28333333, 57.55
+Belarus;Belarusian, Russian;Europe/Minsk;Europe;Eastern Europe;53, 28
+Kosovo;Albanian, Serbian;UTC;Europe;Southeast Europe;42.666667, 21.166667
+Suriname;Dutch;America/Paramaribo;Americas;South America;4, -56
+Togo;French;Africa/Lome;Africa;Western Africa;8, 1.16666666
+Maldives;Maldivian;Indian/Maldives;Asia;Southern Asia;3.25, 73
+Kazakhstan;Kazakh, Russian;Asia/Almaty, Asia/Qyzylorda, Asia/Qostanay, Asia/Aqtobe, Asia/Aqtau, Asia/Atyrau, Asia/Oral;Asia;Central Asia;48, 68
+Angola;Portuguese;Africa/Luanda;Africa;Middle Africa;-12.5, 18.5
+Botswana;English, Tswana;Africa/Gaborone;Africa;Southern Africa;-22, 24
+Swaziland;English, Swazi;Africa/Mbabane;Africa;Southern Africa;-26.5, 31.5
+Benin;French;Africa/Porto-Novo;Africa;Western Africa;9.5, 2.25
+Rwanda;English, French, Kinyarwanda;Africa/Kigali;Africa;Eastern Africa;-2, 30
+Cameroon;English, French;Africa/Douala;Africa;Middle Africa;6, 12
+Bahrain;Arabic;Asia/Bahrain;Asia;Western Asia;26, 50.55
+Saudi Arabia;Arabic;Asia/Riyadh;Asia;Western Asia;25, 45
+Myanmar;Burmese;Asia/Yangon;Asia;South-Eastern Asia;22, 98
+Namibia;Afrikaans, German, English, Herero, Khoekhoe, Kwangali, Lozi, Ndonga, Tswana;Africa/Windhoek;Africa;Southern Africa;-22, 17
+Afghanistan;Dari, Pashto, Turkmen;Asia/Kabul;Asia;Southern Asia;33, 65
+Azerbaijan;Azerbaijani, Russian;Asia/Baku;Asia;Western Asia;40.5, 47.5
+Côte d'Ivoire;French;Africa/Abidjan;Africa;Western Africa;8, -5
+Zambia;English;Africa/Lusaka;Africa;Eastern Africa;-15, 30
+Ethiopia;Amharic;Africa/Addis_Ababa;Africa;Eastern Africa;8, 38
+Sudan;English;Africa/Juba;Africa;Middle Africa;7, 30
+Isle of Man;English, Manx;Europe/Isle_of_Man;Europe;Northern Europe;54.25, -4.5
+Democratic Republic of the Congo;French, Kikongo, Lingala, Tshiluba, Swahili;Africa/Kinshasa, Africa/Lubumbashi;Africa;Middle Africa;0, 25
+Syrian Arab Republic;Arabic;Asia/Damascus;Asia;Western Asia;35, 38
+Bhutan;Dzongkha;Asia/Thimphu;Asia;Southern Asia;27.5, 90.5
+Mauritania;Arabic;Africa/Nouakchott;Africa;Western Africa;20, -12
+Guyana;English;America/Guyana;Americas;South America;5, -59
+Andorra;Catalan;Europe/Andorra;Europe;Southern Europe;42.5, 1.5
+Iceland;Icelandic;Atlantic/Reykjavik;Europe;Northern Europe;65, -18
+Timor-Leste;Portuguese, Tetum;Asia/Dili;Asia;South-Eastern Asia;-8.83333333, 125.91666666
+Kuwait;Arabic;Asia/Kuwait;Asia;Western Asia;29.5, 45.75
+Mali;French;Africa/Bamako;Africa;Western Africa;17, -4
+Saint Lucia;English;America/St_Lucia;Americas;Caribbean;13.88333333, -60.96666666
+Panama;Spanish;America/Panama;Americas;Central America;9, -80
+El Salvador;Spanish;America/El_Salvador;Americas;Central America;13.83333333, -88.91666666
+Cuba;Spanish;America/Havana;Americas;Caribbean;21.5, -80
+Gabon;French;Africa/Libreville;Africa;Middle Africa;-1, 11.75
+Senegal;French;Africa/Dakar;Africa;Western Africa;14, -14
+Jamaica;English, Jamaican Patois;America/Jamaica;Americas;Caribbean;18.25, -77.5
+Lao People's Democratic Republic;Lao;Asia/Vientiane;Asia;South-Eastern Asia;18, 105
+Turkmenistan;Russian, Turkmen;Asia/Ashgabat;Asia;Central Asia;40, 60
+Barbados;English;America/Barbados;Americas;Caribbean;13.16666666, -59.53333333
+Fiji;English, Fijian, Fiji Hindi;Pacific/Fiji;Oceania;Melanesia;-18, 175
+Mongolia;Mongolian;Asia/Ulaanbaatar, Asia/Hovd;Asia;Eastern Asia;46, 105
+United Republic of Tanzania;English, Swahili;Africa/Dar_es_Salaam;Africa;Eastern Africa;-6, 35
+Libyan Arab Jamahiriya;Arabic;Africa/Tripoli;Africa;Northern Africa;25, 17
+Democratic People's Republic of Korea;Korean;Asia/Pyongyang;Asia;Eastern Asia;40, 127
+Antigua and Barbuda;English;America/Antigua;Americas;Caribbean;17.05, -61.8
+Moldova;Moldavian;Europe/Chisinau;Europe;Eastern Europe;47, 29
+Lesotho;English, Sotho;Africa/Maseru;Africa;Southern Africa;-29.5, 28.5
+Palestine;Arabic;Asia/Gaza, Asia/Hebron;Asia;Western Asia;31.9, 35.2
+North Korea;Korean;Asia/Pyongyang;Asia;Eastern Asia;40, 127
+Somalia;Arabic, Somali;Africa/Mogadishu;Africa;Eastern Africa;10, 49
+Congo, Republic of the...;French, Kikongo, Lingala;Africa/Brazzaville;Africa;Middle Africa;-1, 15
+Malawi;English, Chewa;Africa/Blantyre;Africa;Eastern Africa;-13.5, 34
+Papua New Guinea;English, Hiri Motu, Tok Pisin;Pacific/Port_Moresby, Pacific/Bougainville;Oceania;Melanesia;-6, 147
+Oman;Arabic;Asia/Muscat;Asia;Western Asia;21, 57
+Burundi;French, Kirundi;Africa/Bujumbura;Africa;Eastern Africa;-3.5, 30
+Belize;Belizean Creole, English, Spanish;America/Belize;Americas;Central America;17.25, -88.75
+Sierra Leone;English;Africa/Freetown;Africa;Western Africa;8.5, -11.5
+Cape Verde;Portuguese;Atlantic/Cape_Verde;Africa;Western Africa;16, -24
+Guinea;French;Africa/Conakry;Africa;Western Africa;11, -10
