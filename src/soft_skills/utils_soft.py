@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import requests
 from src.soft_skills import config 
 
 def limpieza_soft_skills_2019(df):

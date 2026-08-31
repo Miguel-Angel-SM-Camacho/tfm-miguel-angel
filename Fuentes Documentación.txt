@@ -4,3 +4,9 @@
 --> Metodologías de desarrollo https://www.santanderopenacademy.com/es/blog/metodologias-desarrollo-software.html
 --> Metodología Ágil https://www.unir.net/revista/ingenieria/metodologia-agile/, https://www.agile-academy.com/es/diccionario-agil/manifiesto-agil/
 
+ESTADO DEL ARTE:
+
+--> ECLAT https://www.indielab.cl/poc/ml/app/profundidad?id=208
+--> FP-Growth https://www.indielab.cl/poc/ml/app/profundidad?id=207
+--> Apriori, confianza, lift y soporte https://www.ibm.com/es-es/think/topics/apriori-algorithm
+--> Reglas de asociacion: https://www.ibm.com/docs/es/spss-modeler/saas?topic=nodes-association-rules

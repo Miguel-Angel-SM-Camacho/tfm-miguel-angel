@@ -47,16 +47,19 @@ def limpieza_datos(df):
             
     return df_clean
 
-def codificar_multilabel(df, col, top_n=20):
+def codificar_multilabel(df, col, top_n=20, sep=';'):
     """
-    Convierte una columna de elementos separados por ';' en múltiples columnas binarias.
-    Solo mantiene las 'top_n' tecnologías más frecuentes para evitar ruido.
+    Convierte una columna de elementos separados por `sep` en múltiples columnas binarias.
+    Solo mantiene las 'top_n' categorías más frecuentes para evitar ruido/explosión dimensional.
     """
-    dummies = df[col].str.get_dummies(sep=';')
-    dummies = dummies.drop(columns=['None'], errors='ignore')
-    top_tech = dummies.sum().nlargest(top_n).index
-    dummies = dummies[top_tech].add_prefix(f"{col}_")
-    return pd.concat([df.drop(columns=[col]), dummies], axis=1)
+    df = df.copy()
+    listas = df[col].fillna('').apply(
+        lambda x: [v.strip() for v in x.split(sep) if v.strip() and v.strip().lower() != 'none']
+    )
+    top_valores = listas.explode().value_counts().head(top_n).index.tolist()
+    for valor in top_valores:
+        df[f"{col}_{valor}"] = listas.apply(lambda lst: int(valor in lst))
+    return df.drop(columns=[col])
 
 def datos_geografia(paises_serie):
     """
