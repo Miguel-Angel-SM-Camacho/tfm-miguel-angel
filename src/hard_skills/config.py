@@ -2,10 +2,12 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RAW_DATA_PATH_2025 = os.path.join(BASE_DIR, 'data','raw', 'results_2025.csv')
-PROCESSED_EDA_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'survey_cleaned_eda_hard.csv')
-MODEL_MATRIX_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'matriz_autoencoder.csv')
-PAISES_MAPA_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'maestro_paises_mapa.csv')
-MATRIZ_TRANSACCIONAL_PATH = os.path.join(BASE_DIR, 'data', 'processed', 'matriz_transaccional_hard.csv')
+PROCESSED_EDA_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'survey_cleaned_eda_hard.csv')
+MODEL_MATRIX_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'matriz_autoencoder.csv')
+PAISES_MAPA_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'maestro_paises_mapa.csv')
+MATRIZ_TRANSACCIONAL_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'matriz_transaccional_hard.csv')
+REGLAS_APRIORI_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'reglas_apriori_hard.csv')
+REGLAS_LIMPIAS_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'reglas_limpias_hard.csv')
 
 NUM_COLS = ['WorkExp', 'YearsCode', 'ToolCountWork', 'JobSat']
 CAT_COLS_TEXT = ['ICorPM', 'Country', 'Employment', 'DevType']
