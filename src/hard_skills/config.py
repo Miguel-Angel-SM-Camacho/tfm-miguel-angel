@@ -10,7 +10,7 @@ REGLAS_APRIORI_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'r
 REGLAS_LIMPIAS_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'reglas_limpias_hard.csv')
 
 NUM_COLS = ['WorkExp', 'YearsCode', 'ToolCountWork', 'JobSat']
-CAT_COLS_TEXT = ['ICorPM', 'Country', 'Employment', 'DevType']
+CAT_COLS_TEXT = ['ICorPM', 'Country', 'Employment']
 CAT_COLS_MAPPED = ['EdLevel', 'RemoteWork', 'OrgSize', 'Industry']
 TECH_COLS = [
     'LanguageHaveWorkedWith', 'DatabaseHaveWorkedWith', 

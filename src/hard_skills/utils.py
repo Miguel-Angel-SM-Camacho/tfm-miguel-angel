@@ -26,9 +26,9 @@ def limpieza_datos(df):
         df_clean['ConvertedCompYearly'] = df_clean['ConvertedCompYearly'].clip(lower=10000, upper=300000)
 
     if 'YearsCode' in df_clean.columns:
-        df_clean = df_clean[df_clean['YearsCode'] <= 65]
+        df_clean = df_clean[df_clean['YearsCode'].isna() | (df_clean['YearsCode'] <= 65)]
     if 'WorkExp' in df_clean.columns:
-        df_clean = df_clean[df_clean['WorkExp'] <= 65]
+        df_clean = df_clean[df_clean['WorkExp'].isna() | (df_clean['WorkExp'] <= 65)]
 
     for col, mapeo in [
         ('EdLevel', config.ED_LEVEL_MAPPING),
