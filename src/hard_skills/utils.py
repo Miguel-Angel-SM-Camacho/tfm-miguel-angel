@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import requests
+import time
+from pyECLAT import ECLAT
 from src.hard_skills import config 
 import pytz
 
@@ -111,3 +113,49 @@ def datos_geografia(paises_serie):
     
     print(f"CSV de países guardado en: {config.PAISES_MAPA_PATH}")
     return df_maestro
+
+def barrido_min_support(df_bin, valores_min_support, algoritmo, max_len=4, **kwargs_algoritmo):
+    """
+    Ejecuta un algoritmo de itemsets frecuentes (Apriori, FP-Growth...) para una lista de valores de min_support sobre una matriz transaccional
+    binaria, y devuelve una tabla comparativa (nº de itemsets, tiempo de ejecución y tasa de crecimiento) junto con el valor de min_support donde
+    se detecta el mayor salto de complejidad o codo. Sirve igual para Apriori que para FP-Growth """
+ 
+    resultados = []
+    for ms in valores_min_support:
+        inicio = time.time()
+        itemsets_ms = algoritmo(
+            df_bin, min_support=ms, use_colnames=True,
+            max_len=max_len, **kwargs_algoritmo
+        )
+        duracion = time.time() - inicio
+        resultados.append({'min_support': ms, 'n_itemsets': len(itemsets_ms), 'tiempo_s': round(duracion, 2)})
+        del itemsets_ms
+ 
+    df_sweep = pd.DataFrame(resultados).sort_values('min_support', ascending=False).reset_index(drop=True)
+    df_sweep['delta_itemsets'] = df_sweep['n_itemsets'].diff()
+    df_sweep['delta_support'] = df_sweep['min_support'].diff().abs()
+    df_sweep['itemsets_por_0.01_bajado'] = (df_sweep['delta_itemsets'] / df_sweep['delta_support']) * 0.01
+ 
+    idx_codo = df_sweep['itemsets_por_0.01_bajado'].idxmax()
+    ms_codo = df_sweep.loc[idx_codo, 'min_support'] if pd.notna(idx_codo) else None
+ 
+    return df_sweep, ms_codo
+ 
+ 
+def probar_eclat(df_transacciones, min_support, max_combination=2, min_combination=1, separator=' & '):
+    """
+    Ejecuta una única prueba de Eclat (vía pyECLAT) sobre un dataframe de
+    transacciones, cronometrando la ejecución."""
+ 
+    inicio = time.time()
+    instancia = ECLAT(data=df_transacciones, verbose=True)
+    itemsets, _ = instancia.fit(
+        min_support=min_support, min_combination=min_combination,
+        max_combination=max_combination, separator=separator
+    )
+    duracion_s = round(time.time() - inicio, 2)
+ 
+    n_itemsets = len(itemsets) if itemsets is not None else 0
+    print(f"Tiempo ECLAT (min_support={min_support}): {duracion_s:.2f}s — {n_itemsets} itemsets")
+ 
+    return itemsets, duracion_s
