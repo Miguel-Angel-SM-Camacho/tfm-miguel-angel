@@ -8,6 +8,7 @@ PAISES_MAPA_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'maes
 MATRIZ_TRANSACCIONAL_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'matriz_transaccional_hard.csv')
 REGLAS_APRIORI_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'reglas_apriori_hard.csv')
 REGLAS_LIMPIAS_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'reglas_limpias_hard.csv')
+REGLAS_EXPERTAS_PATH = os.path.join(BASE_DIR, 'data', 'raw', 'reglas_expertas_riesgo.json')
 
 NUM_COLS = ['WorkExp', 'YearsCode', 'ToolCountWork', 'JobSat']
 CAT_COLS_TEXT = ['ICorPM', 'Country', 'Employment']
