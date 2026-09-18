@@ -54,8 +54,12 @@ MAPEO_RESUME_UPDATE = {
     'I heard about a job opportunity (from a recruiter, online job posting, etc.)': 'Contacto de Recruiter u Oferta Online',
     'I had a negative experience or interaction at work': 'Experiencia negativa en el trabajo',
     'My job status changed (promotion, new job, etc.)': 'Cambio de estatus (ascenso, nuevo rol)',
-    'I was preparing for a job search': 'Preparando búsqueda de empleo'
+    'I was preparing for a job search': 'Preparando búsqueda de empleo',
+    'Something else changed (education, award, media, etc.)': 'Algo más cambió (educación, premio, aparición en medios, etc.)',
+    'Re-entry into the workforce': 'Reincorporación al mercado laboral',
+    'Not Provided': 'No especificado'
 }
+
 
 MAPEO_FACTORES = {
     "Languages, frameworks, and other technologies I'd be working with": "Tecnologías y frameworks a utilizar",
@@ -89,8 +93,10 @@ MAPEO_RETOS = {
     'Toxic work environment': 'Entorno laboral tóxico',
     'Inadequate access to necessary tools': 'Falta de herramientas adecuadas',
     'Lack of support from management': 'Falta de apoyo de los mánagers',
-    'Non-work commitments (parenting, school work, hobbies, etc.)': 'Compromisos personales'
+    'Non-work commitments (parenting, school work, hobbies, etc.)': 'Compromisos personales',
+    'Not enough people for the workload': 'Falta de personal para la carga de trabajo'
 }
+
 
 MAPEO_IMP = {
     'Far above average': '1. Muy por encima de la media',
