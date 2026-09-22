@@ -21,6 +21,20 @@ TECH_COLS = [
     'AIModelsHaveWorkedWith'
 ]
 
+INDUSTRY_CODE_DETALLE_MAPPING = {
+    1: 'Industry_Software Development',
+    2: 'Industry_Internet, Telecomm or Information Services',
+    3: 'Industry_Banking/Financial Services',
+    4: 'Industry_Healthcare',
+    5: 'Industry_Manufacturing',
+    6: 'Industry_Government',
+    7: 'Industry_Retail and Consumer Services',
+    8: 'Industry_Higher Education',
+    9: 'Industry_Energy',
+    10: 'Industry_Transportation, or Supply Chain',
+    11: 'Industry_Media & Advertising Services',
+}
+
 ED_LEVEL_MAPPING = {
     'Primary/elementary school': 1,
     'Secondary school (e.g. American high school, German Realschule or Gymnasium, etc.)': 2,
@@ -91,4 +105,43 @@ INDUSTRY_MAPPING = {
     'Media & Advertising Services': 11,
     'Other:': 0,
     'None': 0
+}
+
+MAPEO_TECNOLOGIAS = {
+    'Python': 'LanguageHaveWorkedWith_Python', 'SQL': 'LanguageHaveWorkedWith_SQL',
+    'JavaScript': 'LanguageHaveWorkedWith_JavaScript', 'TypeScript': 'LanguageHaveWorkedWith_TypeScript',
+    'Java': 'LanguageHaveWorkedWith_Java', 'C++': 'LanguageHaveWorkedWith_C++',
+    'C': 'LanguageHaveWorkedWith_C', 'C#': 'LanguageHaveWorkedWith_C#',
+    'Go': 'LanguageHaveWorkedWith_Go', 'Rust': 'LanguageHaveWorkedWith_Rust',
+    'PHP': 'LanguageHaveWorkedWith_PHP', 'Ruby': 'LanguageHaveWorkedWith_Ruby',
+    'Swift': 'LanguageHaveWorkedWith_Swift', 'Kotlin': 'LanguageHaveWorkedWith_Kotlin',
+    'CSS': 'LanguageHaveWorkedWith_HTML/CSS',
+    'React': 'WebframeHaveWorkedWith_React', 'Node.js': 'WebframeHaveWorkedWith_Node.js',
+    'Angular': 'WebframeHaveWorkedWith_Angular', 'Vue.js': 'WebframeHaveWorkedWith_Vue.js',
+    'Django': 'WebframeHaveWorkedWith_Django', 'Flask': 'WebframeHaveWorkedWith_Flask',
+    'FastAPI': 'WebframeHaveWorkedWith_FastAPI', 'Spring Boot': 'WebframeHaveWorkedWith_Spring Boot',
+    'Laravel': 'WebframeHaveWorkedWith_Laravel', 'Express': 'WebframeHaveWorkedWith_Express',
+    'PostgreSQL': 'DatabaseHaveWorkedWith_PostgreSQL', 'MySQL': 'DatabaseHaveWorkedWith_MySQL',
+    'MongoDB': 'DatabaseHaveWorkedWith_MongoDB', 'Redis': 'DatabaseHaveWorkedWith_Redis',
+    'SQLite': 'DatabaseHaveWorkedWith_SQLite', 'MariaDB': 'DatabaseHaveWorkedWith_MariaDB',
+    'Oracle': 'DatabaseHaveWorkedWith_Oracle',
+    'Docker': 'PlatformHaveWorkedWith_Docker', 'Kubernetes': 'PlatformHaveWorkedWith_Kubernetes',
+    'AWS': 'PlatformHaveWorkedWith_Amazon Web Services (AWS)',
+    'Azure': 'PlatformHaveWorkedWith_Microsoft Azure', 'Google Cloud': 'PlatformHaveWorkedWith_Google Cloud',
+    'Terraform': 'PlatformHaveWorkedWith_Terraform',
+    'Linux': 'OpSysProfessional use_Linux (non-WSL)',
+    'TensorFlow': None, 'PyTorch': None, 'Unreal Engine': None, 'MATLAB': None, 'Spark': None,
+}
+
+SENIORITY_PESOS = {
+    'WorkExp_Bin_<5 (Junior)': 0.2,
+    'WorkExp_Bin_5-9 (Semi-Senior o Mid)': 0.5,
+    'WorkExp_Bin_10-18 (Senior)': 0.75,
+    'WorkExp_Bin_>=19 (Muy Senior)': 0.95,
+}
+
+REMOTO_PESOS = {
+    'RemoteWork_Fully remote': 1.0,
+    'RemoteWork_Hybrid (some in-person, leans heavy to flexibility)': 0.5,
+    'RemoteWork_In-person': 0.0,
 }
