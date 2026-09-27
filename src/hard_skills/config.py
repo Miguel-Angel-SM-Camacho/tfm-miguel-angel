@@ -145,3 +145,65 @@ REMOTO_PESOS = {
     'RemoteWork_Hybrid (some in-person, leans heavy to flexibility)': 0.5,
     'RemoteWork_In-person': 0.0,
 }
+
+EDLEVEL_MAPPING_PROYECTO = {
+    'Bachelor': 'Bachelor’s degree (B.A., B.S., B.Eng., etc.)',
+    'Master': 'Master’s degree (M.A., M.S., M.Eng., MBA, etc.)',
+    'Professional': 'Professional degree (JD, MD, Ph.D, Ed.D, etc.)',
+    'Associate': 'Associate degree (A.A., A.S., etc.)',
+    'Secondary': 'Secondary school (e.g. American high school, German Realschule or Gymnasium, etc.)',
+    'SomeCollege': 'Some college/university study without earning a degree',
+}
+
+OS_MAPPING_PROYECTO = {
+    'Linux': 'Linux (non-WSL)',
+}
+
+EMPLOYMENT_MAPPING_PROYECTO = {
+    'Freelancer': 'Independent contractor, freelancer, or self-employed',
+}
+
+TOOLS_MEDIBLES = {'Jira', 'GitHub', 'GitLab', 'Confluence', 'Azure DevOps', 'Notion', 'Trello', 'Linear'}
+
+TOOLS_MAPPING_PROYECTO = {
+    'Azure DevOps': 'Azure Devops',
+}
+
+SALARY_PESOS = {
+    'ConvertedCompYearly_Bin_<40k': 0.1,
+    'ConvertedCompYearly_Bin_40-70k': 0.3,
+    'ConvertedCompYearly_Bin_70-100k': 0.5,
+    'ConvertedCompYearly_Bin_100-150k': 0.7,
+    'ConvertedCompYearly_Bin_>150k': 0.9,
+}
+
+PESOS_DIMENSION = {
+    'seniority': 2.5,
+    'idioma_proyecto': 2.5,
+    'role_title': 2.0,
+    'localizacion_proyecto': 2.0,
+    'remote_work_pct': 1.5,
+    'industry': 1.0,
+    'management_level': 1.0,
+    'education': 1.0,
+    'os': 1.0,
+    'employment_type': 1.0,
+    'tools_used': 1.0,
+    'salary_budget': 1.0,
+    'ide_preferred': 0.5,
+    'ai_tools_preferred': 0.5,
+    'company_size': 0.5,
+}
+PESO_TECH_DEFAULT = 3.0  # cualquier dimensión no listada arriba es un ítem del stack técnico exigido
+
+ETIQUETAS_DIMENSION = {
+    'seniority': 'Nivel de seniority', 'remote_work_pct': '% Teletrabajo',
+    'industry': 'Industria', 'role_title': 'Rol / puesto',
+    'idioma_proyecto': 'Idioma del proyecto', 'localizacion_proyecto': 'Localización',
+    'management_level': 'Nivel de gestión', 'education': 'Formación',
+    'os': 'Sistema operativo', 'employment_type': 'Tipo de contrato',
+    'tools_used': 'Herramientas de trabajo', 'ide_preferred': 'IDE preferido',
+    'ai_tools_preferred': 'Herramientas de IA', 'salary_budget': 'Presupuesto salarial',
+    'company_size': 'Tamaño de empresa',
+}
+DIMENSIONES_UMBRAL = {'seniority', 'remote_work_pct', 'salary_budget', 'tools_used'}
