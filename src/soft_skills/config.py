@@ -8,6 +8,7 @@ MODEL_MATRIX_PATH = os.path.join(BASE_DIR, 'data', 'processed/soft_skills', 'mat
 REGLAS_APRIORI_PATH = os.path.join(BASE_DIR, 'data', 'processed/soft_skills', 'reglas_apriori_soft.csv')
 REGLAS_LIMPIAS_PATH = os.path.join(BASE_DIR, 'data', 'processed/soft_skills', 'reglas_limpias_soft.csv')
 REGLAS_EXPERTAS_PATH = os.path.join(BASE_DIR, 'data', 'raw', 'reglas_expertas_riesgo.json')
+PESO_BASE_SIN_EVIDENCIA = 1.0  
 
 OPENSOURCER_MAPPING = {
     'Never': 1, 
@@ -195,4 +196,71 @@ CORTES_BIGFIVE = {
     'Neuroticismo': {'bajo': 0.09, 'alto': 0.28},  # sin cambios, balance ya correcto
     'Amabilidad':   {'bajo': 0.56, 'alto': 0.70},  # actualizado
     'Apertura':     {'bajo': 0.40, 'alto': 0.70},  # actualizado
+}
+
+PESOS_RIESGO = {
+    'Burnout': 3,                                    # agotamiento severo, impacta salud y rotación
+    'Sobrecarga de trabajo': 3,                      # precursor directo del burnout
+    'Riesgo de conflictos': 3,                       # daña la cohesión y la entrega del equipo
+    'Aislamiento social': 2,                         # afecta bienestar y colaboración/transferencia de conocimiento
+    'Resistencia al cambio': 2,                      # afecta adaptabilidad, relevante en entornos ágiles
+    'Fatiga digital': 2,                             # degrada calidad de la comunicación
+    'Falta de soporte para el trabajo remoto': 1,    # más operativo/logístico que humano
+}
+
+VARIABLES_INDICE_COMPROMISO = [
+    'Hobbyist', 'OpenSourcer', 'CareerSat', 'CodeRev', 'JobSeek',
+    'LastHireDate', 'ResumeUpdate', 'BetterLife', 'MgrIdiot',
+]
+
+PESOS_INDICE_COMPROMISO = {
+    'Hobbyist_Yes': 1.0,
+    'Hobbyist_No': 0.0,
+    'OpenSourcer_Once a month or more often': 1.0,
+    'OpenSourcer_Less than once a month but more than once per year': 0.66,
+    'OpenSourcer_Less than once per year': 0.33,
+    'OpenSourcer_Never': 0.0,
+    'CareerSat_Very satisfied': 1.0,
+    'CareerSat_Slightly satisfied': 0.75,
+    'CareerSat_Neither satisfied nor dissatisfied': 0.5,
+    'CareerSat_Slightly dissatisfied': 0.25,
+    'CareerSat_Very dissatisfied': 0.0,
+    'CodeRev_Yes, because I see value in code review': 1.0,
+    'CodeRev_Yes, because I was told to do so': 0.5,
+    'CodeRev_No': 0.0,
+    'JobSeek_I am actively looking for a job': 1.0,
+    'JobSeek_I’m not actively looking, but I am open to new opportunities': 0.5,
+    'JobSeek_I am not interested in new job opportunities': 0.0,
+    'LastHireDate_More than 4 years ago': 1.0,
+    'LastHireDate_3-4 years ago': 0.75,
+    'LastHireDate_1-2 years ago': 0.5,
+    'LastHireDate_Less than a year ago': 0.25,
+    'LastHireDate_NA - I am an independent contractor or self employed': 0.5,
+    "LastHireDate_I've never had a job": 0.0,
+    'ResumeUpdate_I was preparing for a job search': 1.0,
+    'ResumeUpdate_I heard about a job opportunity (from a recruiter, online job posting, etc.)': 0.75,
+    'ResumeUpdate_I had a negative experience or interaction at work': 0.5,
+    'ResumeUpdate_Re-entry into the workforce': 0.25,
+    'ResumeUpdate_My job status changed (promotion, new job, etc.)': 0.25,
+    'ResumeUpdate_Something else changed (education, award, media, etc.)': 0.25,
+    'BetterLife_Yes': 1.0,
+    'BetterLife_No': 0.0,
+    'MgrIdiot_Not at all confident': 1.0,
+    'MgrIdiot_Somewhat confident': 0.5,
+    "MgrIdiot_I don't have a manager": 0.5,
+    'MgrIdiot_Very confident': 0.0,
+}
+
+CONDICIONES_PROYECTO_SOFT = {
+    8:  lambda p: p.get('concurrent_projects_per_member', 0) > 2,
+    10: lambda p: p.get('timezone_overlap_hours', 99) <= 3,
+    11: lambda p: not p.get('has_annual_inperson_meeting', True)
+                  and not p.get('has_prior_team_experience', True)
+                  and not p.get('has_team_building_activities', True),
+    12: lambda p: len(p.get('countries_involved', [])) >= 3 and p.get('multiple_teams_involved', False),
+    22: lambda p: p.get('remote_work_pct', 0) >= 70 and not p.get('disconnection_policy', True),
+    23: lambda p: p.get('project_complexity') == 'Alta',
+    24: lambda p: p.get('remote_work_pct', 0) == 100 and p.get('meetings_per_week', 0) >= 4 and not p.get('disconnection_policy', True),
+    25: lambda p: p.get('remote_work_pct', 0) >= 70 and not p.get('disconnection_policy', True) and p.get('deadline_tightness') == 'Ajustado',
+    26: lambda p: p.get('meetings_per_week', 0) >= 4 and p.get('multiple_teams_involved', False),
 }
