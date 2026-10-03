@@ -4,6 +4,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 RAW_DATA_PATH_2025 = os.path.join(BASE_DIR, 'data','raw', 'results_2025.csv')
 PROCESSED_EDA_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'survey_cleaned_eda_hard.csv')
 MODEL_MATRIX_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'matriz_autoencoder.csv')
+PROYECTOS_PATH = os.path.join(BASE_DIR, 'data', 'raw', 'proyectos_prueba.json')
 PAISES_MAPA_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'maestro_paises_mapa.csv')
 MATRIZ_TRANSACCIONAL_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'matriz_transaccional_hard.csv')
 REGLAS_APRIORI_PATH = os.path.join(BASE_DIR, 'data', 'processed/hard_skills', 'reglas_apriori_hard.csv')

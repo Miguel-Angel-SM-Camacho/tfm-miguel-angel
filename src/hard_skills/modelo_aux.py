@@ -304,7 +304,6 @@ def obtener_perfil_tech_candidato(idCandidato, proyecto, df_matriz, config_hard_
     ent = df_matriz.loc[idCandidato]
     columnas_hard, _ = mapeo_proyecto(proyecto['tech_stack_required'], config_hard_skills.MAPEO_TECNOLOGIAS)
     perfil_tech = sorted(c for c in columnas_hard if c in ent.index and ent[c] == 1)
-    perfil_tech = sorted(c for c in columnas_hard if c in ent.index and ent[c] == 1)
     return set(perfil_tech[:max_items])
 
 def busqueda_evidencias(items_esperados, df_reglas, top_n=5):
@@ -381,7 +380,7 @@ def add_evidencia(res_ranking, proyecto, df_matriz, df_reglas,
         else:
             lift_max = None
         lifts.append(lift_max)
-        n_items_perfil.append(perfil_completo)
+        n_items_perfil.append(len(perfil_completo))
         n_items_testeados.append(len(perfil_solo_tech))
                                  
     ranking = res_ranking['ranking'].copy()
@@ -433,6 +432,9 @@ def mostrar_ranking_proyecto(proyecto, res_ranking, df_matriz, df_geo, paises_ma
     )
     posiciones = {cid: i for i, cid in enumerate(df_matriz.index)}
 
+    pesos = obtener_pesos(dimensiones, config_hard_skills)
+    distancia_maxima = pesos.sum()
+
     print("=" * 72)
     print(f" OFERTA: {proyecto.get('company_name', 'N/D')} busca {proyecto.get('role_title', 'N/D')}")
     print(f" PROYECTO: {proyecto.get('project_id', 'N/D')} | Industria: {proyecto.get('industry', 'N/D')}")
@@ -458,8 +460,11 @@ def mostrar_ranking_proyecto(proyecto, res_ranking, df_matriz, df_geo, paises_ma
         dims_ko = [etiqueta_dimension(d, config_hard_skills) for d, ok in zip(dimensiones, cumple_mask) if not ok]
         pais_candidato, idiomas_candidato = ubicacion_candidatos(candidato_id, df_geo)
 
-        print(f" RANKING #{i} | Candidato {candidato_id} | Nivel de Match: {fila['similitud_coseno'] * 100:.2f}% "
-              f"(distancia Manhattan: {fila['distancia_manhattan']:.2f})")
+        distancia = fila['distancia_manhattan']
+        nivel_match = max(0.0, 100 * (1 - distancia / distancia_maxima)) if distancia_maxima > 0 else 0.0
+
+        print(f" RANKING #{i} | Candidato {candidato_id} | Nivel de Match: {nivel_match:.2f}% "
+              f"(distancia Manhattan: {distancia:.2f} | similitud coseno: {fila['similitud_coseno'] * 100:.2f}%)")
         print(f"    * Ubicación: {pais_candidato} | Idiomas: {idiomas_candidato}")
         print(f"    * Cumple ({len(dims_ok)}/{len(dimensiones)}): {', '.join(dims_ok) if dims_ok else '—'}")
         if dims_ko:

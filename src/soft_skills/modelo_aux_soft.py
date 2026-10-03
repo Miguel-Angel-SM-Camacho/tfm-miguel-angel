@@ -156,11 +156,11 @@ def riesgo_candidatos(idCandidato, df_riesgo):
             print(f"      Mitigación sugerida: {r['mitigacion']}")
 
 
-def mostrar_riesgo_proyecto(proyecto, df_riesgos_top, reglas, top_n=5):
+def mostrar_riesgo_proyecto(proyecto, df_riesgos_top, reglas, total_reglas_soft, titulo_bloque="candidatos más destacados", top_n=5):
     "Muestra el proyecto y los candidatos más relevantes en el mismo"
     print("=" * 72)
     print(f" PROYECTO: {proyecto.get('project_id', 'N/D')} | {proyecto.get('company_name', 'N/D')} busca {proyecto.get('role_title', 'N/D')}")
-    print(f" CONDICIONES DE RIESGO QUE ACTIVA ESTE PROYECTO ({len(reglas)}/9 reglas soft_parcial):")
+    print(f" CONDICIONES DE RIESGO QUE ACTIVA ESTE PROYECTO ({len(reglas)}/{total_reglas_soft} reglas soft_parcial):")
     if reglas:
         for r in reglas:
             print(f"   - [{r['id']}] {r['riesgo']}: {r['condicion_texto']}")
@@ -168,7 +168,7 @@ def mostrar_riesgo_proyecto(proyecto, df_riesgos_top, reglas, top_n=5):
         print("   Ninguna — las condiciones de este proyecto no activan ningún riesgo de soft skills conocido.")
     print("=" * 72)
 
-    print(f"\nTOP {min(top_n, len(df_riesgos_top))} CANDIDATOS MÁS DESTACADOS PARA ESTE PROYECTO:\n")
+    print(f"\nTOP {min(top_n, len(df_riesgos_top))} {titulo_bloque.upper()} PARA ESTE PROYECTO:\n")
     for i, cid in enumerate(df_riesgos_top.index, start=1):
         print(f"RANKING #{i}")
         riesgo_candidatos(cid, df_riesgos_top)
