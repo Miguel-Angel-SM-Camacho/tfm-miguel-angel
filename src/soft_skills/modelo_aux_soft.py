@@ -173,3 +173,37 @@ def mostrar_riesgo_proyecto(proyecto, df_riesgos_top, reglas, total_reglas_soft,
         print(f"RANKING #{i}")
         riesgo_candidatos(cid, df_riesgos_top)
         print("-" * 72)
+
+
+# ---------------------------------------------------------------------------
+# Despliegue de la API para el ranking de candidatos según hard skills Docker
+# ---------------------------------------------------------------------------
+
+def construir_respuesta_json(proyecto, df_ranking, reglas_activas, n_candidatos_finales, total_reglas_soft):
+    "Construye la respuesta JSON para la API del ranking de candidatos en base a las soft skills"
+    candidatos = []
+    for cid, f in df_ranking.iterrows():
+        candidatos.append({
+            'candidate_id': int(cid),
+            'score_riesgo': round(float(f['score_riesgo']), 4),
+            'n_riesgos_unicos': int(f['n_riesgos_unicos']),
+            'n_riesgos_activados': int(f['n_riesgos']),
+            'indice_compromiso': round(float(f['indice_compromiso']), 4),
+            'riesgos_activados': [
+                {
+                    'id_regla': r['id_regla'],
+                    'riesgo': r['riesgo'],
+                    'items_activados': r['items_activados'],
+                    'mitigacion': r['mitigacion'],
+                    'peso_evidencia': round(float(r['peso_evidencia']), 4),
+                }
+                for r in f['riesgos_activados']
+            ],
+        })
+    return {
+        'project_id': proyecto.get('project_id'),
+        'reglas_activas': [{'id': r['id'], 'riesgo': r['riesgo'], 'condicion_texto': r['condicion_texto']} for r in reglas_activas],
+        'total_reglas_soft': total_reglas_soft,
+        'candidatos_con_riesgo_aceptable': n_candidatos_finales,
+        'candidatos': candidatos,
+    }        

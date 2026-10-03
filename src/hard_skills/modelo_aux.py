@@ -476,3 +476,84 @@ def mostrar_ranking_proyecto(proyecto, res_ranking, df_matriz, df_geo, paises_ma
             lift_txt = f"{lift:.2f}" if pd.notna(lift) else "sin evidencia minada"
             print(f"    * Evidencia de minería (lift, sobre {n_ev} ítems tech): {lift_txt}")
         print("-" * 72)
+
+# ---------------------------------------------------------------------------
+# Despliegue de la API para el ranking de candidatos según hard skills Docker
+# ---------------------------------------------------------------------------
+
+def asignacion_proyecto_candidatos_hard(proyecto, df_matriz, df_geo_hard, paises_mapa, config_hard_skills, top_n=5):
+    "Misma lógica que antes vivía en la libreta, ahora con las dependencias explícitas"
+    "para poder usarla también desde la API."
+
+    matriz_candidatos_finales, vector_ideales, m, no_medibles = vector_candidato_proyecto(proyecto, df_matriz, df_geo_hard, paises_mapa, config_hard_skills)
+    pesos = obtener_pesos(m, config_hard_skills)
+    # Manhattan ponderada: cada dimensión pesa distinto en el error absoluto
+    distancia_manhattan = (np.abs(matriz_candidatos_finales - vector_ideales) * pesos).sum(axis=1)
+
+    # Coseno ponderado: escalamos ambos vectores por sqrt(peso) -> producto interno ponderado
+    candidato_ponderado = matriz_candidatos_finales * np.sqrt(pesos)
+    ideal_ponderado = vector_ideales * np.sqrt(pesos)
+    norma_candidato = np.linalg.norm(candidato_ponderado, axis=1)
+    norma_ideal = np.linalg.norm(ideal_ponderado)
+    with np.errstate(invalid='ignore', divide='ignore'):
+        similitud_coseno = np.where(
+            norma_candidato > 0,
+            (candidato_ponderado @ ideal_ponderado) / (norma_candidato * norma_ideal),
+            0.0,
+        )
+
+    df_ranking_final = df_matriz.copy()
+    df_ranking_final['distancia_manhattan'] = distancia_manhattan
+    df_ranking_final['similitud_coseno'] = similitud_coseno
+    ranking_final = df_ranking_final.sort_values('distancia_manhattan').head(top_n)
+    return {
+        'project_id': proyecto['project_id'],
+        'dimensiones_evaluadas': m,
+        'no_medibles': no_medibles,
+        'pesos_aplicados': dict(zip(m, pesos)),
+        'ranking': ranking_final[['distancia_manhattan', 'similitud_coseno']],
+    }
+
+def construir_ranking_json(proyecto, res_ranking, df_matriz, df_geo_hard, paises_mapa, config_hard_skills, top_n=5):
+
+    "Se construye un ranking en formato JSON con la información de los candidatos y su nivel de match con el proyecto para poder utilizarse en la API"
+
+    matriz_candidatos_elegidos, vector_ideales, dimensiones, no_medibles = vector_candidato_proyecto(proyecto, df_matriz, df_geo_hard, paises_mapa, config_hard_skills)
+    posiciones = {cid: i for i, cid in enumerate(df_matriz.index)}
+    pesos = obtener_pesos(dimensiones, config_hard_skills)
+    distancia_maxima = pesos.sum()
+    ranking = res_ranking['ranking'].head(top_n)
+    candidatos = []
+
+    for candidato_id, fila in ranking.iterrows():
+        pos = posiciones[candidato_id]
+        vector_candidato = matriz_candidatos_elegidos[pos]
+        cumple_mask = [cumple_dimension(n, vc, vi, config_hard_skills) for n, vc, vi in zip(dimensiones, vector_candidato, vector_ideales)]
+        dims_ok = [etiqueta_dimension(d, config_hard_skills) for d, ok in zip(dimensiones, cumple_mask) if ok]
+        dims_ko = [etiqueta_dimension(d, config_hard_skills) for d, ok in zip(dimensiones, cumple_mask) if not ok]
+        pais_candidato, idiomas_candidato = ubicacion_candidatos(candidato_id, df_geo_hard)
+
+        distancia = float(fila['distancia_manhattan'])
+        nivel_match = max(0.0, 100 * (1 - distancia / distancia_maxima)) if distancia_maxima > 0 else 0.0
+        lift = fila.get('lift_evidencia_mineria')
+        n_ev = fila.get('n_items_evaluados')
+
+        candidatos.append({
+            'candidate_id': int(candidato_id),
+            'nivel_match_pct': round(nivel_match, 2),
+            'distancia_manhattan': round(distancia, 4),
+            'similitud_coseno_pct': round(float(fila['similitud_coseno']) * 100, 2),
+            'ubicacion': pais_candidato,
+            'idiomas': idiomas_candidato,
+            'cumple': dims_ok,
+            'no_cumple': dims_ko,
+            'lift_evidencia_mineria': round(float(lift), 4) if pd.notna(lift) else None,
+            'n_items_evaluados_evidencia': int(n_ev) if pd.notna(n_ev) else None,
+        })
+
+    return {
+        'project_id': proyecto['project_id'],
+        'dimensiones_evaluadas': dimensiones,
+        'no_medibles': no_medibles,
+        'candidatos': candidatos,
+    }
